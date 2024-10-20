@@ -209,6 +209,8 @@ namespace Tayx.Graphy
 
         #region Properties -> Public
 
+        public Action OnInitialized;
+
         public Mode GraphyMode
         {
             get => m_graphyMode;
@@ -811,6 +813,8 @@ namespace Tayx.Graphy
                 // We need to enable this on startup because we disable it in GraphyManagerEditor
                 GetComponent<Canvas>().enabled = true;
             }
+
+            OnInitialized?.Invoke();
 
             m_initialized = true;
         }
